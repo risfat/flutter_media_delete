@@ -24,7 +24,7 @@ To use this package in your Flutter project, follow these steps:
    dependencies:
      flutter:
        sdk: flutter
-     flutter_media_delete: any
+     flutter_media_delete: ^1.0.0
    ```
 
    Replace `^1.0.0` with the latest version of the package if needed.
