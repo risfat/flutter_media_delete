@@ -1,6 +1,6 @@
 name: flutter_media_delete
 description: A Flutter plugin to delete media files using Android MediaStore API.
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/risfat/flutter_media_delete
 
 
