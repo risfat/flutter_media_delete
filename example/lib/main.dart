@@ -54,9 +54,11 @@ class _MediaListScreenState extends State<MediaListScreen> {
       setState(() {
         _isLoading = false;
       });
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Permissions not granted')),
-      );
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Permissions not granted')),
+        );
+      }
     }
   }
 
@@ -78,13 +80,17 @@ class _MediaListScreenState extends State<MediaListScreen> {
   Future<void> _deleteFile(String path) async {
     try {
       final result = await FlutterMediaDelete.deleteMediaFile(path);
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(result),
-      ));
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(result),
+        ));
+      }
     } on Exception catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(e.toString()),
-      ));
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(e.toString()),
+        ));
+      }
     } finally {
       _loadMedia(); // Reload the list after deletion
     }
@@ -95,7 +101,7 @@ class _MediaListScreenState extends State<MediaListScreen> {
       final result = await FlutterMediaDelete.deleteMediaFolder(path);
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(result ?? 'Failed to delete folder contents'),
+          content: Text(result),
         ));
       }
     } on Exception catch (e) {
