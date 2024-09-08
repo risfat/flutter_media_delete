@@ -7,17 +7,19 @@ import 'services/media_utils.dart';
 import 'services/permission_handler_service.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Media Manager',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        textTheme: TextTheme(
+        textTheme: const TextTheme(
           headlineSmall:
               TextStyle(color: Colors.black87, fontWeight: FontWeight.bold),
           bodyMedium: TextStyle(color: Colors.black54),
@@ -91,13 +93,17 @@ class _MediaListScreenState extends State<MediaListScreen> {
   Future<void> _deleteFolder(String path) async {
     try {
       final result = await FlutterMediaDelete.deleteMediaFolder(path);
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(result ?? 'Failed to delete folder contents'),
-      ));
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(result ?? 'Failed to delete folder contents'),
+        ));
+      }
     } on Exception catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(e.toString()),
-      ));
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(e.toString()),
+        ));
+      }
     } finally {
       _loadMedia(); // Reload the list after deletion
     }
