@@ -20,10 +20,8 @@ dependencies:
     sdk: flutter
   flutter_media_delete:
     git:
-      url: https://github.com/yourusername/flutter_media_delete.git
+      url: https://github.com/risfat/flutter_media_delete.git
 ```
-
-Replace `https://github.com/yourusername/flutter_media_delete.git` with the actual URL of your plugin repository if applicable.
 
 ## Usage
 
@@ -82,8 +80,6 @@ Contributions are welcome! Please open an issue or submit a pull request to cont
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache License 2.0 License - see the [LICENSE](LICENSE) file for details.
 
 ---
-
-Feel free to copy this updated `README.md` content into your file. Let me know if you need further adjustments!
