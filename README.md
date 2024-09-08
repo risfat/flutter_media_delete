@@ -6,22 +6,32 @@ A Flutter plugin designed for deleting media files using scoped storage on Andro
 
 ## Features
 
-- **Scoped Storage**: Uses Android's scoped storage API to delete media files on Android Q (API 29) and above.
-- **Cross-Platform Support**: Designed to handle media deletion with appropriate permissions.
-- **Error Handling**: Provides detailed error messages and feedback.
+- **Scoped Storage**: Uses Android's scoped storage API to delete media files on Android Q (API 29) and above, ensuring compliance with modern Android storage policies.
+- **Delete Single Media Files**: Allows you to delete a specific media file (video, audio, or image) by providing its file path. This method works with both scoped and traditional storage models, depending on the Android version.
+- **Delete All Media Files in a Specified Folder**: Enables you to delete all media files within a given folder, including videos, audio files, and images. This operation works with scoped storage for Android Q and above, as well as traditional storage for older versions.
+- **Error Handling**: Provides detailed error messages and feedback, including cases where files are not found or deletion is denied by the user. This ensures you receive clear information about any issues encountered during file deletion.
+- **Compatibility**: Designed to handle file deletion operations across different Android versions, adapting to scoped storage requirements where necessary.
 
 ## Installation
 
-Add the following dependency to your `pubspec.yaml` file:
+To use this package in your Flutter project, follow these steps:
 
-```yaml
-dependencies:
-  flutter:
-    sdk: flutter
-  flutter_media_delete:
-    git:
-      url: https://github.com/risfat/flutter_media_delete.git
-```
+1. **Add the Dependency**
+
+   Add `flutter_media_delete` as a dependency in your `pubspec.yaml` file:
+
+   ```yaml
+   dependencies:
+     flutter:
+       sdk: flutter
+     flutter_media_delete: ^1.0.0
+   ```
+
+   Replace `^1.0.0` with the latest version of the package if needed.
+
+2. **Install the Dependency**
+
+   Run `flutter pub get` in your terminal to install the package.
 
 ## Usage
 
